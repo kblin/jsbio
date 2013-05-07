@@ -5,3 +5,6 @@ all: bio.min.js
 
 bio.min.js: ${SOURCES}
 	uglifyjs ${SOURCES} --comments -o bio.min.js
+
+test:
+	phantomjs tests/runner.js tests/index.html
