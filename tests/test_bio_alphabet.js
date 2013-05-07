@@ -39,3 +39,11 @@ test("size", function(assert){
     assert.equal(a.size, 1);
 });
 
+test("instantiation", function(){
+    var a = null;
+    ok(a == null);
+    a = new Bio.ProteinAlphabet();
+    ok(a instanceof Bio.ProteinAlphabet);
+    ok(a instanceof Bio.SingleLetterAlphabet);
+    ok(a instanceof Bio.Alphabet);
+});

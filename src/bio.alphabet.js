@@ -13,3 +13,9 @@ Bio.SingleLetterAlphabet = Bio.Alphabet.extend({
         this.size = 1;
     }
 });
+
+Bio.ProteinAlphabet = Bio.SingleLetterAlphabet.extend({
+    init: function() {
+        this._super();
+    }
+});
