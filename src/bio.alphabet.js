@@ -1,75 +1,69 @@
-Bio.Alphabet = Class.extend({
-    init: function() {
-        this.size = null;
-        this.letters = null;
+import {Data} from './bio.data';
+
+export class Alphabet {
+    constructor(size=null, letters=null) {
+        this.size = size;
+        this.letters = letters;
     }
-});
+};
+export const generic_alphabet = new Alphabet();
 
-Bio.generic_alphabet = new Bio.Alphabet();
-
-Bio.SingleLetterAlphabet = Bio.Alphabet.extend({
-    init: function() {
-        this._super();
-        this.size = 1;
+export class SingleLetterAlphabet extends Alphabet {
+    constructor(letters=null) {
+        super(1, letters);
     }
-});
+};
 
-Bio.ProteinAlphabet = Bio.SingleLetterAlphabet.extend({});
-Bio.generic_protein = new Bio.ProteinAlphabet();
+export class ProteinAlphabet extends SingleLetterAlphabet {};
+export const generic_protein = new ProteinAlphabet();
 
-Bio.NucleotideAlphabet = Bio.SingleLetterAlphabet.extend({});
-Bio.generic_nucleotide = new Bio.NucleotideAlphabet();
+export class NucleotideAlphabet extends SingleLetterAlphabet {};
+export const generic_nucleotide = new NucleotideAlphabet();
 
-Bio.DNAAlphabet = Bio.NucleotideAlphabet.extend({});
-Bio.generic_dna = new Bio.DNAAlphabet();
+export class DNAAlphabet extends NucleotideAlphabet {};
+export const generic_dna = new DNAAlphabet();
 
-Bio.RNAAlphabet = Bio.NucleotideAlphabet.extend({});
-Bio.generic_rna = new Bio.DNAAlphabet();
+export class RNAAlphabet extends NucleotideAlphabet {};
+export const generic_rna = new DNAAlphabet();
 
-Bio.IUPACProtein = Bio.ProteinAlphabet.extend({
-    init: function() {
-        this._super();
-        this.letters = Bio.Data.IUPACData.protein_letters;
+export class IUPACProtein extends ProteinAlphabet {
+    constructor() {
+        super(Data.IUPACData.protein_letters);
     }
-});
-Bio.protein = new Bio.IUPACProtein();
+};
+export const protein = new IUPACProtein();
 
-Bio.ExtendedIUPACProtein = Bio.ProteinAlphabet.extend({
-    init: function() {
-        this._super();
-        this.letters = Bio.Data.IUPACData.extended_protein_letters;
+export class ExtendedIUPACProtein extends ProteinAlphabet {
+    constructor() {
+        super(Data.IUPACData.extended_protein_letters);
     }
-});
-Bio.extended_protein = new Bio.ExtendedIUPACProtein();
+};
+export const extended_protein = new ExtendedIUPACProtein();
 
-Bio.IUPACUnambiguousDNA = Bio.DNAAlphabet.extend({
-    init: function() {
-        this._super();
-        this.letters = Bio.Data.IUPACData.unambiguous_dna_letters;
+export class IUPACUnambiguousDNA extends DNAAlphabet {
+    constructor() {
+        super(Data.IUPACData.unambiguous_dna_letters);
     }
-});
-Bio.unambiguous_dna = new Bio.IUPACUnambiguousDNA();
+};
+export const unambiguous_dna = new IUPACUnambiguousDNA();
 
-Bio.IUPACAmbiguousDNA = Bio.DNAAlphabet.extend({
-    init: function() {
-        this._super();
-        this.letters = Bio.Data.IUPACData.ambiguous_dna_letters;
+export class IUPACAmbiguousDNA extends DNAAlphabet {
+    constructor() {
+        super(Data.IUPACData.ambiguous_dna_letters);
     }
-});
-Bio.ambiguous_dna = new Bio.IUPACAmbiguousDNA();
+};
+export const ambiguous_dna = new IUPACAmbiguousDNA();
 
-Bio.IUPACUnambiguousRNA = Bio.RNAAlphabet.extend({
-    init: function() {
-        this._super();
-        this.letters = Bio.Data.IUPACData.unambiguous_rna_letters;
+export class IUPACUnambiguousRNA extends RNAAlphabet {
+    constructor() {
+        super(Data.IUPACData.unambiguous_rna_letters);
     }
-});
-Bio.unambiguous_rna = new Bio.IUPACUnambiguousRNA();
+};
+export const unambiguous_rna = new IUPACUnambiguousRNA();
 
-Bio.IUPACAmbiguousRNA = Bio.RNAAlphabet.extend({
-    init: function() {
-        this._super();
-        this.letters = Bio.Data.IUPACData.ambiguous_rna_letters;
+export class IUPACAmbiguousRNA extends RNAAlphabet {
+    constructor() {
+        super(Data.IUPACData.ambiguous_rna_letters);
     }
-});
-Bio.ambiguous_rna = new Bio.IUPACAmbiguousRNA();
+};
+export const ambiguous_rna = new IUPACAmbiguousRNA();

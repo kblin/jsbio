@@ -1,4 +1,4 @@
-Bio.Data = {
+export const Data = {
     IUPACData: {
         protein_letters: "ACDEFGHIKLMNPQRSTVWY",
         /*

@@ -1,4 +1,4 @@
 language: node_js
 # no need to install anything. Skip this.
 install: true
-script: make test
+script: npm test
