@@ -1,7 +1,7 @@
 # jsBio
 A collection of JavaScript functions for biology applications.
 
-[![Build Status](https://travis-ci.org/kblin/jsbio.png)](https://travis-ci.org/kblin/jsbio)
+[![Build Status](https://travis-ci.org/kblin/jsbio.svg?branch=master)](https://travis-ci.org/kblin/jsbio)
 
 ## Installation
 
